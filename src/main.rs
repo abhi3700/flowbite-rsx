@@ -4,8 +4,9 @@
 
 mod components;
 
+use self::manganis;
 use components::{
-    accordion::{Accordion, AccordionAlwaysOpen, AccordionDefault},
+    accordion::{Accordion, AccordionAlwaysOpen, AccordionColorOptions, AccordionDefault},
     alerts::Alerts,
     buttons::{BackButtons, Buttons},
 };
@@ -24,11 +25,15 @@ enum Route {
     AccordionDefault {},
     #[route("/accordian/alwaysopen")]
     AccordionAlwaysOpen {},
+    #[route("/accordian/coloroptions")]
+    AccordionColorOptions {},
     #[route("/buttons")]
     Buttons {},
     #[route("/buttons/back")]
     BackButtons {},
 }
+
+const _TAILWIND_URL: &str = manganis::mg!(file("./assets/tailwind.css"));
 
 fn main() {
     // Init logger
@@ -39,6 +44,7 @@ fn main() {
 
 fn App() -> Element {
     rsx! {
+        document::Link { rel: "stylesheet", href: asset!("./assets/tailwind.css") }
         Router::<Route> {}
     }
 }
