@@ -2,7 +2,10 @@
 //!
 //! https://flowbite.com/docs/components/buttons/
 
-use crate::Route;
+use crate::{
+    components::{BackButton, DividerLine},
+    Route,
+};
 use dioxus::prelude::*;
 
 #[component]
@@ -10,40 +13,18 @@ pub(crate) fn Buttons() -> Element {
     rsx! {
         div { class: "flex flex-col p-2",
             div { class: "flex flex-row mb-2",
-                Link { to: Route::Home {},
-                    button { class: "hover:bg-gray-300 py-1.5 px-5 rounded-md",
-                        svg {
-                            class: "w-5 h-5",
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            view_box: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            path {
-                                d: "M10 19l-7-7 7-7",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                            }
-                            path {
-                                d: "M100 12H4",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                            }
-                        }
-                    }
-                }
-
+                BackButton { route: Route::Home {} }
                 h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
                     "Buttons"
                 }
             }
             // Divider Line
-            hr { class: "w-full border-t-2 border-gray-100 my-4" }
+            DividerLine {}
             h5 { class: "mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white",
                 "Back Buttons"
             }
             BackButtons {}
-            hr { class: "w-full border-t-2 border-gray-100 my-4" }
+            DividerLine {}
         }
     }
 }

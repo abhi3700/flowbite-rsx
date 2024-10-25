@@ -2,7 +2,10 @@
 //!
 //! https://flowbite.com/docs/components/accordion/
 
-use crate::Route;
+use crate::{
+    components::{BackButton, DividerLine},
+    Route,
+};
 use dioxus::prelude::*;
 
 #[component]
@@ -10,35 +13,14 @@ pub(crate) fn Accordion() -> Element {
     rsx! {
         div { class: "flex flex-col p-2",
             div { class: "flex flex-row",
-                Link { to: Route::Home {},
-                    button { class: "hover:bg-gray-300 py-1.5 px-5 rounded-md",
-                        svg {
-                            class: "w-5 h-5",
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            view_box: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            path {
-                                d: "M10 19l-7-7 7-7",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                            }
-                            path {
-                                d: "M100 12H4",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                            }
-                        }
-                    }
-                }
+                BackButton { route: Route::Home {} }
 
                 h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
                     "Accordian"
                 }
             }
             // Divider Line
-            hr { class: "w-full border-t-2 border-gray-100 my-4" }
+            DividerLine {}
 
             div { class: "grid sm:grid-cols-4 gap-3 p-2 items-center",
                 Link { to: Route::AccordionDefault {},
@@ -70,6 +52,7 @@ pub(crate) fn Accordion() -> Element {
 /// https://flowbite.com/docs/components/accordion/#default-accordion
 #[component]
 pub(crate) fn AccordionDefault() -> Element {
+    // TODO: Make it as for-loop to populate element
     // State management for accordion sections
     let mut is_open_1 = use_signal(|| false);
     let mut is_open_2 = use_signal(|| false);
@@ -81,29 +64,7 @@ pub(crate) fn AccordionDefault() -> Element {
             "data-accordion": "collapse",
             class: "p-2",
             div { class: "flex flex-row gap-3 mb-2",
-                Link { to: Route::Accordion {},
-                    button { class: "hover:bg-gray-300 py-1.5 px-5 rounded-md",
-                        svg {
-                            class: "w-5 h-5",
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            view_box: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            path {
-                                d: "M10 19l-7-7 7-7",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                            }
-                            path {
-                                d: "M100 12H4",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                            }
-                        }
-                    }
-                }
-
+                BackButton { route: Route::Accordion {} }
                 h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
                     "Default Accordian"
                 }
