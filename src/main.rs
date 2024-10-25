@@ -9,7 +9,7 @@ use components::{
     accordion::{Accordion, AccordionAlwaysOpen, AccordionColorOptions, AccordionDefault},
     alerts::Alerts,
     buttons::{BackButtons, Buttons},
-    forms::{DefaultForm, Forms},
+    forms::{DefaultForm, FloatingLabelsForm, Forms, InputSizesForm},
     DividerLine,
 };
 use dioxus::prelude::*;
@@ -46,6 +46,10 @@ enum Route {
     Forms {},
     #[route("/forms/defaultform")]
     DefaultForm {},
+    #[route("/forms/floatinglabel")]
+    FloatingLabelsForm {},
+    #[route("/forms/inputsizes")]
+    InputSizesForm {},
 }
 
 fn main() {

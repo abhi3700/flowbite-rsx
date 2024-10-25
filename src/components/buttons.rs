@@ -3,7 +3,7 @@
 //! https://flowbite.com/docs/components/buttons/
 
 use crate::{
-    components::{BackButton, DividerLine},
+    components::{BackButtonWTitleWDivLine, DividerLine},
     Route,
 };
 use dioxus::prelude::*;
@@ -12,14 +12,8 @@ use dioxus::prelude::*;
 pub(crate) fn Buttons() -> Element {
     rsx! {
         div { class: "flex flex-col p-2",
-            div { class: "flex flex-row mb-2",
-                BackButton { route: Route::Home {} }
-                h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
-                    "Buttons"
-                }
-            }
-            // Divider Line
-            DividerLine {}
+            BackButtonWTitleWDivLine { route: Route::Home {}, title: "Buttons" }
+
             h5 { class: "mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white",
                 "Back Buttons"
             }

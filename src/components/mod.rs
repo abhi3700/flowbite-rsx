@@ -9,7 +9,21 @@ pub(crate) mod forms;
 use crate::Route;
 use dioxus::prelude::*;
 
-// Common
+// === Common
+
+#[component]
+pub(crate) fn BackButtonWTitleWDivLine(route: Route, title: &'static str) -> Element {
+    rsx! {
+        div { class: "flex flex-row",
+            BackButton { route }
+            h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
+                {title}
+            }
+        }
+        // Divider Line
+        DividerLine {}
+    }
+}
 
 #[component]
 pub(crate) fn BackButton(route: Route) -> Element {

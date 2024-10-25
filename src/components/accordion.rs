@@ -2,25 +2,14 @@
 //!
 //! https://flowbite.com/docs/components/accordion/
 
-use crate::{
-    components::{BackButton, DividerLine},
-    Route,
-};
+use crate::{components::BackButtonWTitleWDivLine, Route};
 use dioxus::prelude::*;
 
 #[component]
 pub(crate) fn Accordion() -> Element {
     rsx! {
         div { class: "flex flex-col p-2",
-            div { class: "flex flex-row",
-                BackButton { route: Route::Home {} }
-
-                h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
-                    "Accordian"
-                }
-            }
-            // Divider Line
-            DividerLine {}
+            BackButtonWTitleWDivLine { route: Route::Home {}, title: "Accordion" }
 
             div { class: "grid sm:grid-cols-4 gap-3 p-2 items-center",
                 Link { to: Route::AccordionDefault {},
@@ -63,12 +52,7 @@ pub(crate) fn AccordionDefault() -> Element {
             id: "accordion-collapse",
             "data-accordion": "collapse",
             class: "p-2",
-            div { class: "flex flex-row gap-3 mb-2",
-                BackButton { route: Route::Accordion {} }
-                h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
-                    "Default Accordian"
-                }
-            }
+            BackButtonWTitleWDivLine { route: Route::Accordion {}, title: "Default Accordion" }
 
             // Accordion Item 1
             h2 { id: "accordion-collapse-heading-1",
@@ -231,34 +215,7 @@ pub(crate) fn AccordionDefault() -> Element {
 pub(crate) fn AccordionAlwaysOpen() -> Element {
     rsx! {
         div { class: "p-2",
-            div { class: "flex flex-row gap-3 mb-2",
-                Link { to: Route::Accordion {},
-                    button { class: "hover:bg-gray-300 py-1.5 px-5 rounded-md",
-                        svg {
-                            class: "w-5 h-5",
-                            xmlns: "http://www.w3.org/2000/svg",
-                            fill: "none",
-                            view_box: "0 0 24 24",
-                            stroke: "currentColor",
-                            "stroke-width": "2",
-                            path {
-                                d: "M10 19l-7-7 7-7",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                            }
-                            path {
-                                d: "M100 12H4",
-                                "stroke-linecap": "round",
-                                "stroke-linejoin": "round"
-                            }
-                        }
-                    }
-                }
-
-                h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
-                    "Always Open"
-                }
-            }
+            BackButtonWTitleWDivLine { route: Route::Accordion {}, title: "Always Open" }
         }
     }
 }
