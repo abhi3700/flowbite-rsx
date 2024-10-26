@@ -11,7 +11,7 @@ use dioxus::prelude::*;
 #[component]
 pub(crate) fn Buttons() -> Element {
     rsx! {
-        div { class: "flex flex-col p-2",
+        div { class: "flex flex-col p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Home {}, title: "Buttons" }
 
             h5 { class: "mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white",

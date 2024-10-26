@@ -4,7 +4,7 @@ use dioxus::prelude::*;
 #[component]
 pub(crate) fn Forms() -> Element {
     rsx! {
-        div { class: "flex flex-col p-2",
+        div { class: "flex flex-col p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Home {}, title: "Forms" }
 
             div { class: "grid sm:grid-cols-4 gap-3 p-2 items-center",
@@ -37,7 +37,7 @@ pub(crate) fn Forms() -> Element {
 #[component]
 pub(crate) fn DefaultForm() -> Element {
     rsx! {
-        div { class: "p-2",
+        div { class: "p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Forms {}, title: "Default form" }
 
             form { class: "max-w-sm mx-auto",
@@ -96,7 +96,7 @@ pub(crate) fn DefaultForm() -> Element {
 #[component]
 pub(crate) fn FloatingLabelsForm() -> Element {
     rsx! {
-        div { class: "p-2",
+        div { class: "p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Forms {}, title: "Floating labels" }
 
             form { class: "max-w-md mx-auto",
@@ -223,7 +223,7 @@ pub(crate) fn FloatingLabelsForm() -> Element {
 #[component]
 pub(crate) fn InputSizesForm() -> Element {
     rsx! {
-        div { class: "p-2",
+        div { class: "p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Forms {}, title: "Input Sizes" }
             form { class: "max-w-sm mx-auto",
                 div { class: "mb-5",

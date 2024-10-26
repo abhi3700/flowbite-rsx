@@ -3,6 +3,7 @@
 pub(crate) mod accordion;
 pub(crate) mod alerts;
 pub(crate) mod buttons;
+pub(crate) mod dropdowns;
 pub(crate) mod forms;
 // TODO: Add more
 
@@ -29,9 +30,9 @@ pub(crate) fn BackButtonWTitleWDivLine(route: Route, title: &'static str) -> Ele
 pub(crate) fn BackButton(route: Route) -> Element {
     rsx! {
         Link { to: route,
-            button { class: "hover:bg-gray-300 py-1.5 px-5 rounded-md",
+            button { class: "hover:bg-gray-300 py-1.5 px-5 rounded-md dark:hover:bg-gray-800",
                 svg {
-                    class: "w-5 h-5",
+                    class: "w-5 h-5 text-black dark:text-white",
                     xmlns: "http://www.w3.org/2000/svg",
                     fill: "none",
                     view_box: "0 0 24 24",
@@ -56,6 +57,6 @@ pub(crate) fn BackButton(route: Route) -> Element {
 #[component]
 pub(crate) fn DividerLine() -> Element {
     rsx! {
-        hr { class: "w-full border-t-2 border-gray-100 my-4" }
+        hr { class: "w-full border-t-2 border-gray-100 dark:border-gray-900 my-4" }
     }
 }

@@ -9,6 +9,7 @@ use components::{
     accordion::{Accordion, AccordionAlwaysOpen, AccordionColorOptions, AccordionDefault},
     alerts::Alerts,
     buttons::{BackButtons, Buttons},
+    dropdowns::{DropdownDelayDuration, DropdownExample, DropdownHover, Dropdowns},
     forms::{DefaultForm, FloatingLabelsForm, Forms, InputSizesForm},
     DividerLine,
 };
@@ -50,6 +51,15 @@ enum Route {
     FloatingLabelsForm {},
     #[route("/forms/inputsizes")]
     InputSizesForm {},
+
+    #[route("/dropdowns")]
+    Dropdowns {},
+    #[route("/dropdowns/dropdownexample")]
+    DropdownExample {},
+    #[route("/dropdowns/dropdownhover")]
+    DropdownHover {},
+    #[route("/dropdowns/dropdowndelayduration")]
+    DropdownDelayDuration {},
 }
 
 fn main() {
@@ -69,7 +79,7 @@ fn App() -> Element {
 #[component]
 fn Home() -> Element {
     rsx! {
-        div { class: "flex flex-col p-2 items-center justify-items",
+        div { class: "flex flex-col p-2 items-center justify-items w-full min-h-screen dark:bg-gray-700",
             h5 { class: "mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white",
                 "Flowbite using Dioxus Rust 🦀"
             }
@@ -103,6 +113,13 @@ fn Home() -> Element {
                     button { class: "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800",
                         span { class: "relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0",
                             "Forms"
+                        }
+                    }
+                }
+                Link { to: Route::Dropdowns {},
+                    button { class: "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800",
+                        span { class: "relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0",
+                            "Dropdowns"
                         }
                     }
                 }

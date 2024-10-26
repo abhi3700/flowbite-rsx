@@ -9,7 +9,7 @@ use dioxus::prelude::*;
 pub(crate) fn Alerts() -> Element {
     // TODO: complete the code
     rsx! {
-        div { class: "flex flex-col p-2",
+        div { class: "flex flex-col p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Home {}, title: "Alerts" }
         }
     }

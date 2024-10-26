@@ -8,7 +8,7 @@ use dioxus::prelude::*;
 #[component]
 pub(crate) fn Accordion() -> Element {
     rsx! {
-        div { class: "flex flex-col p-2",
+        div { class: "flex flex-col p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Home {}, title: "Accordion" }
 
             div { class: "grid sm:grid-cols-4 gap-3 p-2 items-center",
@@ -51,7 +51,7 @@ pub(crate) fn AccordionDefault() -> Element {
         div {
             id: "accordion-collapse",
             "data-accordion": "collapse",
-            class: "p-2",
+            class: "p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Accordion {}, title: "Default Accordion" }
 
             // Accordion Item 1
@@ -214,7 +214,7 @@ pub(crate) fn AccordionDefault() -> Element {
 #[component]
 pub(crate) fn AccordionAlwaysOpen() -> Element {
     rsx! {
-        div { class: "p-2",
+        div { class: "p-2 w-full min-h-screen dark:bg-gray-700",
             BackButtonWTitleWDivLine { route: Route::Accordion {}, title: "Always Open" }
         }
     }
@@ -222,5 +222,9 @@ pub(crate) fn AccordionAlwaysOpen() -> Element {
 
 #[component]
 pub(crate) fn AccordionColorOptions() -> Element {
-    rsx! {}
+    rsx! {
+        div { class: "p-2 w-full min-h-screen dark:bg-gray-700",
+            BackButtonWTitleWDivLine { route: Route::Accordion {}, title: "Color options" }
+        }
+    }
 }
