@@ -16,7 +16,9 @@ use components::{
 use dioxus::prelude::*;
 use dioxus_logger::tracing::{info, Level};
 
-const STYLE: &str = asset!("./assets/tailwind.css");
+const FAVICON: Asset = asset!("/assets/favicon.ico");
+const MAIN_CSS: Asset = asset!("/assets/main.css");
+const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
 
 #[derive(Clone, Routable, Debug, PartialEq)]
 enum Route {
@@ -71,7 +73,10 @@ fn main() {
 
 fn App() -> Element {
     rsx! {
-        document::Link { rel: "stylesheet", href: STYLE }
+        document::Link { rel: "icon", href: FAVICON }
+        document::Link { rel: "stylesheet", href: MAIN_CSS }
+        document::Link { rel: "stylesheet", href: TAILWIND_CSS }
+
         Router::<Route> {}
     }
 }

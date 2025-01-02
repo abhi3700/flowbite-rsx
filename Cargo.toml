@@ -7,6 +7,18 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-dioxus = { git = "https://github.com/DioxusLabs/dioxus", rev = "ef436e4ed013500a0e579827ac12ab11c2ee5e49", features = ["web", "router"] }
-dioxus-logger = "0.5.1"
-manganis = "0.2.2"
+dioxus = { version = "0.6.1", features = ["web", "router"] }
+dioxus-logger = "0.6.1"
+manganis = "0.6.1"
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
